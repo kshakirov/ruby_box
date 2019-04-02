@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "name": "Multiplier",
+  "language": "python",
+  "code": "class #{class_name}\n      def run batch\n        batch.map do |i|\n          puts i\n        end\n      end\n    end",
+  "customAttributes": {
+    "type": "Converter"
+  }
+}

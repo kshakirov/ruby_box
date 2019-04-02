@@ -1,17 +1,16 @@
 require 'sinatra/base'
+require_relative 'lib/engine'
 
-class MyApp < Sinatra::Base
+class ConverterService < Sinatra::Base
   set :klasses, {}
-  set :foo, 'bar'
+  set :engine, Engine.new
 
   get '/' do
-    'Hello world!'
+    'Testing Jruby Box!'
   end
-  post '/evaluate/' do
-    body = JSON.parse request.body.read
-    klass = body['class_body']
-    eval(klass)
-    settings.klasses[body['class_name']] = MyApp.const_get body['class_name']
+  post '/lambda/ruby/converter/' do
+    body = JSON.parse request.body.read, symbolize_names: true
+    settings.engine.run body
     ""
   end
 
