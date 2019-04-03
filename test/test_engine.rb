@@ -26,7 +26,8 @@ class TestEngine < MiniTest::Test
   end
 
   def test_main
-    @engine.run @request_body
+    response = @engine.run @request_body
+    assert response
   end
 
   def test_request
