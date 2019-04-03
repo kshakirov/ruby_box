@@ -1,5 +1,6 @@
 class Engine
   def initialize
+    #TODO must be provided from config
     @url = 'http://54.148.156.110:4567/sync-module/converters'
   end
 
@@ -34,10 +35,12 @@ class Engine
   end
 
   def run request_body
-    convs = converters request_body[:arguments][0][:converterIds]
-    evaluate convs
-    process request_body[:arguments][0][:input], (convs.map {|c| c[:name]}),
-            request_body[:arguments][0][:id]
+    request_body[:arguments].map do |r|
+      convs = converters r[:converterIds]
+      evaluate convs
+      process r[:input], (convs.map {|c| c[:name]}),
+              r[:id]
+    end
   end
 
   def evaluate converters
