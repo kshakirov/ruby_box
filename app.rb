@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'json'
 require_relative 'lib/engine'
 
 class ConverterService < Sinatra::Base

@@ -11,11 +11,15 @@ class Engine
             }
         }
     ]
+    @url = 'http://54.148.156.110:4567/sync-module/converters'
   end
 
 
   def converters ids
-    ids.each {|i| puts i}
+    ids.map do |i|
+      body = RestClient.get "#{@url}/#{i}"
+      JSON.parse body, symbolize_names: true
+    end
   end
 
   def process input, converter_names
@@ -29,8 +33,8 @@ class Engine
   end
 
   def run request_body
-    converters request_body[:arguments][0][:converterIds]
-    evaluate @converters
+    convs = converters request_body[:arguments][0][:converterIds]
+    evaluate convs
     process request_body[:arguments][0][:input], (@converters.map {|c| c[:name]})
   end
 

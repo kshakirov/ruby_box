@@ -1,3 +1,5 @@
+require 'rest-client'
+require 'json'
 require_relative '../lib/engine'
 require "minitest/autorun"
 
@@ -16,7 +18,7 @@ class TestEngine < MiniTest::Test
                     ]
                 ],
                 "converterIds": [
-                    1
+                    36
                 ]
             }
         ]
@@ -25,5 +27,11 @@ class TestEngine < MiniTest::Test
 
   def test_main
     @engine.run @request_body
+  end
+
+  def test_request
+     body  =RestClient.get 'http://54.148.156.110:4567/sync-module/converters/36'
+     body = JSON.parse body, symbolize_names: true
+    assert body
   end
 end
