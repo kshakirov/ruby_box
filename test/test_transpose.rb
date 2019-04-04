@@ -38,7 +38,7 @@ class TestAttributeTranspose < MiniTest::Test
   end
 
   def test_run
-    result  =@transposer.run @data[:arguments][0][:input][0]
+    result  =@transposer.run @data[:arguments][0][:input]
     assert result
   end
 end

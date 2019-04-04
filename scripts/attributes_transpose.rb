@@ -18,7 +18,8 @@ class AttributeTranspose
     itemize item, rows, p_k_name, p_k_value
   end
 
-  def run batch
-    batch.map {|item| trans item}
+  def run arguments
+    batches = arguments.first.map {|item| trans item}
+    batches.flatten
   end
 end
