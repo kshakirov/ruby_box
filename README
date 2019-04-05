@@ -1,0 +1,14 @@
+1. check if there is rvm - rvm list - must return something if not
+2. install rvm
+  2.1 \curl -sSL https://get.rvm.io | bash -s stable --ruby=jruby
+  2.2 look at the output if any error read the instructions from the output
+    .2.1. gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+    .2.2 and then again  \curl -sSL https://get.rvm.io | bash -s stable --ruby=jruby
+3. source /home/ubuntu/.rvm/scripts/rvm
+4. must work now --- rvm list
+5. use the default ruby
+6. cd to the source folder
+7.  bundle install -- to install dependencies
+8. To start just issue the command in the folder
+puma -p [your port number]
+9. enjoy
