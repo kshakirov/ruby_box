@@ -1,0 +1,41 @@
+{
+  "results": [
+    {
+      "id": "111122",
+      "status": 200,
+      "value": [
+        {
+          "Internal_Reference": "DC-DAC5001",
+          "Attribute Name": "color_attribute",
+          "Attribute Value": "DAC5001"
+        },
+        {
+          "Internal_Reference": "DC-DAC5001",
+          "Attribute Name": "is_active",
+          "Attribute Value": "product"
+        },
+        {
+          "Internal_Reference": "DC-ACS8014",
+          "Attribute Name": "color_attribute",
+          "Attribute Value": "ACS8014"
+        },
+        {
+          "Internal_Reference": "DC-ACS8014",
+          "Attribute Name": "is_active",
+          "Attribute Value": "product"
+        },
+        {
+          "Internal_Reference": "DC-HTA3010",
+          "Attribute Name": "color_attribute",
+          "Attribute Value": "HTA3010"
+        },
+        {
+          "Internal_Reference": "DC-HTA3010",
+          "Attribute Name": "is_active",
+          "Attribute Value": "product"
+        }
+      ],
+      "rejected": false
+    }
+  ]
+}

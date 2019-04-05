@@ -41,7 +41,10 @@ class Engine
       process r[:input], (convs.map {|c| c[:name]}),
               r[:id]
     end
-    args.flatten
+    {
+        results: args.flatten
+    }
+
   end
 
   def evaluate converters

@@ -1,0 +1,11 @@
+{
+  "results": [
+    {
+      "id": ",<submittedRequestId>",
+      "status": ",< HTML status, normally 500 or 200 >",
+      "value": ",<calculation result value>",
+      "rejected": true
+    }
+  ]
+}
+
