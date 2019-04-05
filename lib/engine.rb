@@ -35,12 +35,13 @@ class Engine
   end
 
   def run request_body
-    request_body[:arguments].map do |r|
+    args = request_body[:arguments].map do |r|
       convs = converters r[:converterIds]
       evaluate convs
       process r[:input], (convs.map {|c| c[:name]}),
               r[:id]
     end
+    args.flatten
   end
 
   def evaluate converters
