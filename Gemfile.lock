@@ -11,6 +11,8 @@ GEM
     minitest (5.11.3)
     mustermann (1.0.3)
     netrc (0.11.0)
+    puma (3.12.1)
+    puma (3.12.1-java)
     rack (2.0.6)
     rack-protection (2.0.5)
       rack
@@ -24,7 +26,10 @@ GEM
       rack-protection (= 2.0.5)
       tilt (~> 2.0)
     tilt (2.0.9)
+    unf (0.1.4)
+      unf_ext
     unf (0.1.4-java)
+    unf_ext (0.0.7.5)
 
 PLATFORMS
   java
@@ -32,6 +37,7 @@ PLATFORMS
 
 DEPENDENCIES
   minitest
+  puma
   rest-client
   sinatra
 
