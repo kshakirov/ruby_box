@@ -14,5 +14,10 @@ class ConverterService < Sinatra::Base
     body = JSON.parse request.body.read, symbolize_names: true
     settings.engine.run(body).to_json
   end
+
+  post '/lambda/ruby/script/' do
+    body = JSON.parse request.body.read, symbolize_names: true
+    settings.engine.test(body).to_json
+  end
 end
 

@@ -12,3 +12,22 @@
 8. To start just issue the command in the folder
 puma -p [your port number]
 9. enjoy
+
+
+For Testing
+
+post '/lambda/ruby/script'
+
+На вход:
+{ arguments: [ <аргументы функции> ],
+ converter: {
+ name: "MyClass",
+ code: "class MyClass ..."
+ }
+}
+
+На выходе ожидаются:
+{ status: 200 / 500,
+ result: resultValue,
+ errors: [ array of error messages if 500 ]
+}

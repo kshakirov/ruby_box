@@ -28,7 +28,8 @@ class Engine
           id: request_id,
           status: status,
           value: value,
-          rejected: rejected
+          rejected: rejected,
+          errors: (e ? [e.message] : false)
       }
 
     end
@@ -49,6 +50,18 @@ class Engine
 
   def evaluate converters
     converters.each {|c| eval c[:code]}
+  end
+
+
+  def test request_body
+    args = request_body[:arguments]
+    evaluate [request_body[:converter]]
+    response = process([args], [request_body[:converter][:name]], 1)[0]
+    response[:result] = response[:value]
+    response.delete(:value)
+    response.delete(:rejected)
+    response.delete(:id)
+    response
   end
 
 

@@ -1,7 +1,7 @@
 require 'rest-client'
 require 'json'
 require_relative '../lib/engine'
-require "minitest/autorun"
+require 'minitest/autorun'
 
 class TestEngine < MiniTest::Test
   def setup
@@ -9,7 +9,7 @@ class TestEngine < MiniTest::Test
     @request_body = {
         "arguments": [
             {
-                "id": "123",
+                "id": '123',
                 "input": [
                     [
                         1,
@@ -30,9 +30,31 @@ class TestEngine < MiniTest::Test
     assert response
   end
 
+  def get_converter id
+    body = RestClient.get "http://54.148.156.110:4567/sync-module/converters/#{id}"
+    JSON.parse body, symbolize_names: true
+  end
+
   def test_request
-     body  =RestClient.get 'http://54.148.156.110:4567/sync-module/converters/36'
-     body = JSON.parse body, symbolize_names: true
-    assert body
+    assert get_converter 36
+  end
+
+  def test_t_request
+    body = get_converter(36)
+    request_body = {
+        "arguments":
+            [
+                1,
+                2,
+                3
+            ],
+
+        "converter": {
+            "name": "Multiplier",
+            "code": body[:code]
+        }
+    }
+    response = @engine.test request_body
+    assert response.key? :status
   end
 end

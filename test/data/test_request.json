@@ -1,0 +1,8 @@
+{
+  "arguments": [
+  ],
+  "converter": {
+    "name": "MyClass",
+    "code": "class MyClass ..."
+  }
+}

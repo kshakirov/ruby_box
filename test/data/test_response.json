@@ -1,0 +1,7 @@
+{
+  "status": "200 / 500",
+  "result": "resultValue",
+  "errors": [
+    "array of error messages if 500"
+  ]
+}
